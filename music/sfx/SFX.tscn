@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://bydw63170tg8j"]
+
+[ext_resource type="AudioStream" uid="uid://dxnase7nemjuc" path="res://music/sfx/Pop2.wav" id="1_kwiqc"]
+[ext_resource type="Script" path="res://music/sfx/SFX.gd" id="1_y4c3b"]
+[ext_resource type="AudioStream" uid="uid://cyvbprnglwnmf" path="res://music/sfx/Pop3.wav" id="2_84g4l"]
+[ext_resource type="AudioStream" uid="uid://31u8co742l6w" path="res://music/sfx/Hit4.wav" id="4_0f5n3"]
+
+[node name="Sfx" type="Node"]
+process_mode = 3
+script = ExtResource("1_y4c3b")
+
+[node name="Pop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_kwiqc")
+
+[node name="PopRapid" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_84g4l")
+
+[node name="Hit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_0f5n3")

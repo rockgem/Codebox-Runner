@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bseps4x8i3fpn"]
+
+[ext_resource type="Script" path="res://actors/entities/Mushroom.gd" id="1_6ujyc"]
+[ext_resource type="Texture2D" uid="uid://dgqfd3c5383l6" path="res://reso/icons/items/Cabbage.tres" id="2_t8dwn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0oiju"]
+radius = 5.0
+
+[node name="Mushroom" type="Area2D"]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_6ujyc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_t8dwn")
+centered = false
+region_rect = Rect2(16, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 9)
+shape = SubResource("CircleShape2D_0oiju")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://cswkterqcht0e"]
+
+[ext_resource type="Texture2D" uid="uid://ud14usj46laj" path="res://assets/Mushrooms, Flowers, Stones.png" id="1_yi5nx"]
+
+[resource]
+atlas = ExtResource("1_yi5nx")
+region = Rect2(16, 0, 16, 16)

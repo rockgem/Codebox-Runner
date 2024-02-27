@@ -1,0 +1,133 @@
+[gd_scene load_steps=17 format=3 uid="uid://fwkv0tqx4knf"]
+
+[ext_resource type="Script" path="res://actors/entities/Player.gd" id="1_nmaw5"]
+[ext_resource type="Texture2D" uid="uid://derfbxfqtedbk" path="res://assets/Premium Charakter Spritesheet.png" id="1_r5yy3"]
+[ext_resource type="PackedScene" uid="uid://b16e0jmm3r0ti" path="res://scenes/UI.tscn" id="2_eqhxj"]
+[ext_resource type="Texture2D" uid="uid://cg0jon1w6leo5" path="res://assets/new_char/Back_Run_01.png" id="4_fb1s3"]
+[ext_resource type="Texture2D" uid="uid://cajyiilhjeja7" path="res://assets/new_char/Back_Run_02.png" id="5_kmapo"]
+[ext_resource type="Texture2D" uid="uid://bauw704lovcby" path="res://assets/new_char/Back_Run_03.png" id="6_yoqv2"]
+[ext_resource type="Texture2D" uid="uid://bffhuooduy3tx" path="res://assets/new_char/Back_Run_04.png" id="7_w3m4j"]
+[ext_resource type="Texture2D" uid="uid://c2ih100ld271p" path="res://assets/new_char/Back_Run_05.png" id="8_d3ayk"]
+[ext_resource type="Texture2D" uid="uid://g32ca1omy8s8" path="res://assets/new_char/Back_Run_06.png" id="9_kxgee"]
+[ext_resource type="Texture2D" uid="uid://dq0w1x5qehra" path="res://assets/new_char/Back_Run_07.png" id="10_02dee"]
+[ext_resource type="Texture2D" uid="uid://c72jho7ep8vie" path="res://assets/new_char/Back_Run_08.png" id="11_4nb7x"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x0ujc"]
+radius = 6.0
+
+[sub_resource type="Animation" id="Animation_dq8qw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [32]
+}
+
+[sub_resource type="Animation" id="Animation_5uaem"]
+resource_name = "run"
+length = 0.6
+loop_mode = 1
+step = 0.075
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.075, 0.15, 0.225, 0.3, 0.375, 0.45, 0.525),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [40, 41, 42, 43, 44, 45, 46, 47]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ttb7u"]
+_data = {
+"RESET": SubResource("Animation_dq8qw"),
+"run": SubResource("Animation_5uaem")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sbgrs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_fb1s3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_kmapo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_yoqv2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_w3m4j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_d3ayk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_kxgee")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_02dee")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_4nb7x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_nmaw5")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 90
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource("2_eqhxj")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_r5yy3")
+centered = false
+hframes = 8
+vframes = 24
+frame = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(24, 26)
+shape = SubResource("CircleShape2D_x0ujc")
+
+[node name="Aim" type="Node2D" parent="."]
+position = Vector2(24, 26)
+rotation = -1.5708
+
+[node name="RayCast2D" type="RayCast2D" parent="Aim"]
+rotation = -1.5708
+target_position = Vector2(0, 10)
+hit_from_inside = true
+collide_with_areas = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ttb7u")
+}
+autoplay = "run"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(15, 13)
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_sbgrs")
+autoplay = "default"
+frame_progress = 0.404103
+centered = false

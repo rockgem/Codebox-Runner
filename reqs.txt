@@ -1,0 +1,20 @@
+1. Add "Chill Mode" to main menu to select, and then tap to start. Chill mode is the same but doesn't speed up. 
+Current mode is "Normal" mode where it speeds up gradually.
+
+2. Make it so the vegetables are multiples in a row, like strips, rather than single one off ones, like in 
+subway surfer how the coins are one after another.
+
+3. Add two more types of vegetables, Carrots and Cabbages/Lettuce
+
+4. Add vegetables counter at the top of game UI to see how many mushrooms, carrots, and cabbages have been gathered in that run
+
+5. Add more obstacles like water puddles, and fences, so there is more than the 'rock' obstacle
+
+6. Create 3 more map "blocks" that will randomly come after one another, instead of the same block repeating over and over
+
+7. Change Main Menu, to include the other game types (chill and normal), and a spot for an in-game store (dont have to build out store), 
+and toggle sound on and off
+
+8. Make leveling system so the account gains points and unlocks levels the more they play
+
+9. Add a high score to the UI
