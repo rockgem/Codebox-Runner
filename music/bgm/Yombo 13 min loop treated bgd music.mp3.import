@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bilkpgkto4yxr"
+path="res://.godot/imported/Yombo 13 min loop treated bgd music.mp3-e970a4571957fac83bb41166042dede9.mp3str"
+
+[deps]
+
+source_file="res://music/bgm/Yombo 13 min loop treated bgd music.mp3"
+dest_files=["res://.godot/imported/Yombo 13 min loop treated bgd music.mp3-e970a4571957fac83bb41166042dede9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
