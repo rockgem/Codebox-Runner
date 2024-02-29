@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bkmoj6q5iovkw"]
+[gd_scene load_steps=14 format=3 uid="uid://bkmoj6q5iovkw"]
 
 [ext_resource type="Script" path="res://scenes/Menu.gd" id="1_ea10w"]
 [ext_resource type="TileSet" uid="uid://b0narmqpjjdgd" path="res://reso/new_tile_set.tres" id="2_l3jqv"]
@@ -48,6 +48,20 @@ _data = {
 }
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v8ju3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nbrsg"]
+bg_color = Color(0.392157, 0.4, 0.380392, 0.768627)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dt05k"]
+bg_color = Color(0.411765, 0.6, 0.407843, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -250,6 +264,28 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_v8ju3")
 theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_v8ju3")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_v8ju3")
 button_pressed = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 14.0
+offset_right = 123.0
+offset_bottom = 26.0
+
+[node name="Level" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Level 1"
+
+[node name="ProgressBar" type="ProgressBar" parent="HBoxContainer"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_nbrsg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_dt05k")
+value = 40.0
+show_percentage = false
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]

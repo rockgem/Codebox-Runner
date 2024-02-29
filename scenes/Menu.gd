@@ -9,6 +9,10 @@ func _ready():
 	ManagerGame.reset_game()
 	
 	$SettingsPanel/HBoxContainer/Music.button_pressed = !AudioServer.is_bus_mute(0)
+	
+	$HBoxContainer/Level.text = 'Level: %s' % ManagerGame.player_data['level']
+	$HBoxContainer/ProgressBar.max_value = ManagerGame.player_data['exp_max']
+	$HBoxContainer/ProgressBar.value = ManagerGame.player_data['exp']
 
 
 func _on_gui_input(event):
